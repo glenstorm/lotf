@@ -32,4 +32,3 @@ Window {
 		onActivated: Qt.quit()
 	}
 }
-

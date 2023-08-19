@@ -2,6 +2,13 @@
 <RCC version="1.0">
 	<qresource prefix="/">
 		<file>main.qml</file>
+		<file>MainMenu.qml</file>
+		<file>Options.qml</file>
+		<file>Credits.qml</file>
+		<file>MenuButton.qml</file>
+		<file>AButton.qml</file>
+		<file>MenuIntButton.qml</file>
+		<file>NewGame.qml</file>
+		<file>LevelBase.qml</file>
 	</qresource>
 </RCC>
-
