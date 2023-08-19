@@ -1,0 +1,25 @@
+# This is a sample build configuration for C++ – Make.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: ubuntu:jammy
+
+pipelines:
+    branches:
+        master:
+            - step:
+                script: # Modify the commands below to build your repository.
+                    - apt-get -y update
+                    - apt-get -y install cmake ninja-build g++
+                    - apt-get -y install protobuf-compiler libprotobuf-dev
+                    - apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-log-dev libboost-test-dev
+                    - apt-get -y install qtbase5-dev qttools5-dev-tools libqt5widgets5 libqt5qml5 libqt53dquick5 libqt5quickcontrols2-5 qtdeclarative5-dev qtquickcontrols2-5-dev
+                    - apt-get -y install qttools5-dev #( for Ubuntu 18.04+ )
+                    - mkdir build
+                    - cd build
+                    - cmake -GNinja ../
+                    - ninja
+                    - ninja test
+
+
