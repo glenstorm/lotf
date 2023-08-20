@@ -9,6 +9,5 @@
 		<file>AButton.qml</file>
 		<file>MenuIntButton.qml</file>
 		<file>NewGame.qml</file>
-		<file>LevelBase.qml</file>
 	</qresource>
 </RCC>

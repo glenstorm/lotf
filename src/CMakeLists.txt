@@ -4,7 +4,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp Options.cpp Fly.cpp Flies.cpp )
 
 
 target_link_libraries(${PROJECT_NAME}
@@ -50,4 +50,3 @@ file(GLOB_RECURSE QML_FILES
 	*.qml)
 
 add_subdirectory(qml)
-

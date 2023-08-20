@@ -15,11 +15,6 @@ Component {
 
 			MenuButton {
 				text: qsTr("New Game")
-				onClicked: mainStack.push(newGame)
-			}
-
-			MenuButton {
-				text: qsTr("Options")
 				onClicked: mainStack.push(options)
 			}
 
@@ -49,7 +44,9 @@ Component {
 		Settings {
 			id: settings
 
-			property string username: "Unnamed robot"
+			property string sideOfSquare: "100"
+			property string flyCapacity: "0"
+			property string flyStupidity: "300"			
 		}
 	}
 }
