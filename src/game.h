@@ -11,25 +11,49 @@ public:
 	typedef std::vector<MapRow> MapCont;
 
 private:
+	// inside map cell: current fly count
 	MapCont map_;
 	Flies flies_;
 	Options::Ptr opts_;
 
 public:
 	Game()
-	    :map_()
+		:map_()
 		,flies_()
 		,opts_()
 	{}
 
 	void start()
 	{
-		LOGINFO << "Wait for players";
+		LOGINFO << "Start";
+	}
+
+	void stop()
+	{
+		LOGINFO << "Stop";
+	}
+
+	void changeLivingAreaSize(unsigned int n)
+	{
+		for_each(map_.begin(), map_.end(), [](MapRow& row)
+		{
+			row.resize(n);
+		});
+
+		map.resize(n);
+
+		opts_.sideOfSquare(n);
+	}
+
+	void flyStupidity(unsigned int n)
+	{
+		opts_.flyStupidity(n);
 	}
 
 	void options(const Options::Ptr& o)
 	{
-		_opts = o;
+		opts_ = o;
+		flies_.options(o);
 	}
 };
 
