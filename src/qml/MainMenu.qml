@@ -15,7 +15,7 @@ Component {
 
 			MenuButton {
 				text: qsTr("New Game")
-				onClicked: mainStack.push(options)
+				onClicked: mainStack.push(newGame)
 			}
 
 			MenuButton {
@@ -33,10 +33,6 @@ Component {
 			id: newGame
 		}
 
-		Options {
-			id: options
-		}
-
 		Credits {
 			id: credits
 		}
@@ -46,7 +42,7 @@ Component {
 
 			property string sideOfSquare: "100"
 			property string flyCapacity: "0"
-			property string flyStupidity: "300"			
+			property string flyStupidity: "300"
 		}
 	}
 }

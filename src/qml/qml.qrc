@@ -3,7 +3,6 @@
 	<qresource prefix="/">
 		<file>main.qml</file>
 		<file>MainMenu.qml</file>
-		<file>Options.qml</file>
 		<file>Credits.qml</file>
 		<file>MenuButton.qml</file>
 		<file>AButton.qml</file>
