@@ -1,10 +1,13 @@
 #ifndef _FLY_H_GUARD_
 #define _FLY_H_GUARD_
 
+#include <QObject>
+
 typedef std::pair<int, int> Point;
 
-class Fly
+class Fly : public QObject
 {
+	Q_OBJECT
 private:
 	unsigned int num_;
 	/// Возраст
@@ -20,9 +23,7 @@ private:
 public:
 	Fly();
 
-	Fly(unsigned int num, const Point& start_point );
-
-	void operator()();
+	Fly(unsigned int num, const Point& start_point);
 
 	unsigned int age() const;
 	void age(unsigned int);
@@ -38,6 +39,14 @@ public:
 
 	Point position() const;
 	void position(const Point&);
+
+public slots:
+	void process(); 	/*  запускает полет мухи */
+	void stop();    	/*  останавливает полет мухи */
+
+signals:
+	void changePos(); 	/* сигнал о изменении позиции */
+	void finished(); 	/* сигнал о завершении */
 };
 
 #endif

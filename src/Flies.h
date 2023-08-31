@@ -8,32 +8,20 @@
 #include <thread>
 
 // store for threads
-class Flies
+class Flies : public QObject
 {
+	Q_OBJECT
 public:
-	Flies();
+	Flies(const Options::Ptr& o);
 
-	void options(const Options::Ptr& o)
-	{
-		opts_ = o;
-	}
+	void options(const Options::Ptr& o);
+	void addThread(unsigned int num, const Point& start_point);
+	void stopThreads();
+	void startFlying();
 
-	void startFlying()
-	{
-		for (int i = 0; i < opts_->flyCapacity(); i++)
-		{
-			fliesThreads_.emplace_back(std::thread(Fly()));
-		}
-
-		for (int i = 0; i < opts_->flyCapacity(); i++)
-		{
-			fliesThreads_[i].join();
-		}
-	}
 private:
 	Options::Ptr opts_;
-	std::vector<std::thread> fliesThreads_;
-
+	QVector<Fly> fliesThreads_;
 };
 
 #endif
